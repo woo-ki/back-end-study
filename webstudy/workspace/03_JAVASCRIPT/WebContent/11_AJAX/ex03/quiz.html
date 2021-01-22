@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	onload = function () {
+		var xhr = new XMLHttpRequest;
+		xhr.open('get', 'CCTV.csv', true);
+		xhr.send();
+		xhr.onreadystatechange = function () {
+			if(xhr.readyState == 4 && xhr.status == 200) {
+				var result = 0; 
+				var data = xhr.responseText;
+				var dataList = data.split('\n');
+				for(var i = 1; i < dataList.length - 1; i++) {
+					var dataList2 = dataList[i].split(',');
+					result += parseInt(dataList2[9]);
+				}
+				document.getElementById('result').textContent = result;
+			}
+		}
+	}
+</script>
+</head>
+<body>
+	<span>전체 대수는?</span>&nbsp;
+	<span id="result"></span>
+</body>
+</html>

@@ -1,0 +1,23 @@
+@CHARSET "UTF-8";
+
+.wrap {
+	display: flex;
+}
+.left {
+	width: 500px;
+}
+.lifht {
+	width: 1000px;
+}
+table {
+	border-collapse: collapse;
+}
+td, th {
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+	padding: 5px 10px;
+	text-align: center;
+}
+th {
+	background: silver;
+}

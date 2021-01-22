@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+	<!--  
+		자바 애너테이션을 활용해서 Bean을 생성한다면,
+		Namespaces에서 context를 추가하고 <context:annotation-config /> 태그를 추가합니다.
+	-->
+	<context:annotation-config />
+	
+	<!-- speaker : 정상 생성된다(int volume은 자동으로 0으로 초기화 되기 때문에)-->
+	<bean id="speaker" class="com.koreait.spring.Speaker" />
+	<bean id="speaker1" class="com.koreait.spring.Speaker" />
+	
+	<!-- tv : 비정상적인 Bean이 생성된다.(Speaker speaker는 자동으로 null로 초기화 되는데 그러면 speaker.volumeUp()에서 nullpionexception 발생 -->
+	<bean id="tv" class="com.koreait.spring.TV" />
+	<bean id="tv2" class="com.koreait.spring.TV" />
+	
+	<!--  
+		현재 speaker Bean은 생성되었지만
+		TV 클래스의 property인 Speaker speaker는 생성되지 않았으므로
+		TV 클래스에서 직접 speaker를 생성해 보려고 합니다.(TV클래스로 가세요)
+	-->
+
+</beans>

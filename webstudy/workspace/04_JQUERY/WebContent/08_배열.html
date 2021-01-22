@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+	// 문제1.
+	var flowers = ['flower1.jpg', 'flower2.jpg', 'flower3.jpg', 'flower4.jpg', 'flower5.jpg'];
+	$(document).ready(function () {
+		$.each(flowers, function (i, flower) {
+			$('.image-box').append('<img src="assets/images/' + flower + '"/>');
+		});
+		$('img').css('width', '300px').css('height', '300px');
+	});
+	
+	// 문제2.
+	var sites = [
+			{
+				name: '구글',
+				url: 'https://www.google.com'
+			},
+			{
+				name: '카카오',
+				url: 'https://www.kakao.com'
+			},
+			{
+				name: '네이버',
+				url: 'https://www.naver.com'
+			}
+		];
+	$(function () {
+		$.each(sites, function (i, site) {
+			$('.link-box').append('<div>' + site.name + ': <a href="' + site.url + '">' + site.url + '</a>' + '</div>');
+		});
+		$('a').css('text-decoration', 'none').css('color', 'black');
+	});
+</script>
+</head>
+<body>
+	<!-- 문제1. 이미지 300x300으로 가로로 5개 배치하시오 -->
+	<div class="image-box"></div>
+	<br/><br/>
+
+	<!-- 문제2. 포털 링크 3개를 배치하시오. -->
+	<div class="link-box"></div>
+</body>
+</html>

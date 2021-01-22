@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	* {
+		box-sizing: border-box;
+	}
+	body {
+		background: #F2F2F2;
+	}
+	header {
+		background: white;
+	}
+	header > h1 {
+		padding: 30px 0px;
+		text-align: center;
+	}
+	nav > ul {
+		list-style-type: none;
+		padding: 0px;
+		display: flex;
+		background: black;
+		margin: 5px 0px;
+	}
+	nav > ul > li {
+		height: 25px;
+		width: 60px;
+	}
+	nav > ul > li > a {
+		display: inline-block;
+		line-height: 25px;
+		width: 60px;
+		text-align: center;
+		color: white;
+		text-decoration: none;
+		font-size: 10px;
+	}
+	nav > ul > li > a:hover {
+		background: #555555;
+	}
+	
+	.main-section {
+		display: flex;
+	}
+	.main-section > .left-section {
+		width: 70%;
+		margin-right: 5px;
+	}
+	.main-section > .right-section {
+		width: 30%;
+	}
+	.fake-img {
+		width: 100%;
+		padding: 15px 0px;
+		background: lightgray;
+	}
+	.left-section > article:nth-of-type(1) > .fake-img {
+		height: 300px;
+	}
+	article {
+		margin-top: 5px;
+		background: white;
+	}
+	footer {
+		padding: 20px 0px;
+		text-align: center;
+		background: lightgray;
+	}		
+	
+</style>
+</head>
+<body>
+	<header>
+		<h1>My Website</h1>
+	</header>
+	<nav>
+		<ul>
+			<li><a href="javascript:void(0)">Menu1</a></li>
+			<li><a href="javascript:void(0)">Menu2</a></li>
+			<li><a href="javascript:void(0)">Menu3</a></li>
+			<li><a href="javascript:void(0)">Menu4</a></li>
+		</ul>
+	</nav>
+	
+	<section class="main-section">
+		<section class="left-section">
+			<article>
+				<h2>TITLE HEADING1</h2>
+				<p>Title description1</p>
+				<div class="fake-img">image</div>
+				<p>content1</p>
+				<p>XXXXXXXXXXXXXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXX</p>
+			</article>
+			<article>
+				<h2>TITLE HEADING2</h2>
+				<p>Title description2</p>
+				<div class="fake-img">image</div>
+				<p>content2</p>
+				<p>XXXXXXXXXXXXXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXX</p>
+			</article>
+		</section>
+		<section class="right-section">
+			<article>
+				<h2>About Me</h2>
+				<div class="fake-img">image</div>
+				<p>XXXXXXXXXXXXXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXX</p>
+			</article>
+			<article>
+				<h2>Popular Post</h2>
+				<div class="fake-img">image</div>
+				<div class="fake-img">image</div>
+				<div class="fake-img">image</div>
+			</article>
+			<article>
+				<h2>Follow Me</h2>
+				<p>XXXXXXXXXXXXXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXX</p>
+			</article>
+		</section>
+	</section>
+	
+	<footer>
+		<h2>Footer</h2>
+	</footer>
+</body>
+</html>

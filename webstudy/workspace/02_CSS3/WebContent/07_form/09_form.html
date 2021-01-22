@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	.main-aside {
+		width: 350px;
+		border: 3px solid green
+	}
+	a {
+		display: flex;
+	}
+	.tab-contents, input[type="radio"] {
+		display: none;
+	}
+	#front:checked ~ div:nth-of-type(2) {
+		display: block;
+	}
+	#back:checked ~ div:nth-of-type(3) {
+		display: block;
+	}
+	ul {
+		list-style-type: none;
+		padding: 0px;
+	}
+	.top-buttons {
+		display: flex;
+	}
+	label {
+		display: block;
+		width: 150px;
+		padding: 20px;
+		text-align: center;
+		background: limegreen;
+		color: white;
+	}
+	#front:checked ~ div:nth-of-type(1) > label:nth-of-type(1) {
+		background: darkgreen;
+	}
+	#back:checked ~ div:nth-of-type(1) > label:nth-of-type(2) {
+		background: darkgreen;
+	}
+</style>
+</head>
+<body>
+	<div class="main-aside">
+		<input id="front" type="radio" name="tab" checked />
+		<input id="back" type="radio" name="tab" />
+		<div class="top-buttons">
+			<label for="front">FRONT-END</label>
+			<label for="back">BACK-END</label>
+		</div>
+		
+		<!-- FRONT-END 내용 -->
+		<div class="tab-contents">
+			<ul>
+				<li>
+					<a href="#">
+						<div class="thumbnail">
+							<img src="https://via.placeholder.com/100">
+						</div>
+						<div class="description">
+							<strong>HTML</strong>
+							HTML은 하이퍼 텍스트 ...
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<div class="thumbnail">
+							<img src="https://via.placeholder.com/100">
+						</div>
+						<div class="description">
+							<strong>CSS</strong>
+							CSS는 캐스케이드 ...
+						</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+		
+		<!-- BACK-END 내용 -->
+		<div class="tab-contents">
+			<ul>
+				<li>
+					<a href="#">
+						<div class="thumbnail">
+							<img src="https://via.placeholder.com/100">
+						</div>
+						<div class="description">
+							<strong>JSP</strong>
+							JSP는 자바 서버 페이지의 약자로 ...
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<div class="thumbnail">
+							<img src="https://via.placeholder.com/100">
+						</div>
+						<div class="description">
+							<strong>Spring</strong>
+							Spring은 경량 컨테이너 ...
+						</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

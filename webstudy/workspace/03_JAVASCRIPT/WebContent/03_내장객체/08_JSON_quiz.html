@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var sites = [
+			{
+				"logo" : "https://www.google.co.kr/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
+				"name" : "google",
+				"url" : "https://www.google.co.kr/"
+			},
+			{
+				"logo" : "https://t1.daumcdn.net/daumtop_chanel/op/20200723055344399.png",
+				"name" : "daum",
+				"url" : "https://www.daum.net/"
+			}
+	];
+</script>
+<style type="text/css">
+	img {
+		width: 130px;
+	}
+</style>
+</head>
+<body>
+	<input type="button" value= "사이트 정보 가져오기" onclick="getSites()" />
+	<br/><br/>
+
+	<table border="1">
+		<thead>
+			<tr>
+				<td>로고</td>
+				<td>사이트명</td>
+				<td>링크</td>
+			</tr>
+		</thead>
+		<tbody id="site-contents"></tbody>
+	</table>
+	
+	<script type="text/javascript">
+		var strSites = JSON.stringify(sites);
+		var JSONSites = JSON.parse(strSites);
+
+		function getSites() {
+			var result = '';
+			for(var i = 0; i < JSONSites.length; i++) {
+				result += '<tr>';
+				result += '<td><img alt="none" src="' + sites[i].logo + '"></td>';
+				result += '<td>' + sites[i].name + '</td>';
+				result += '<td><a href="' + sites[i].url + '">' + sites[i].url + '</a></td></tr>'
+			}
+			document.getElementById('site-contents').innerHTML = result;
+		}
+	</script>
+</body>
+</html>

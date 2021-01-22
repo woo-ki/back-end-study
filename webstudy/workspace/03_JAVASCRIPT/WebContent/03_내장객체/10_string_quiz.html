@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	console.log(replaceAll('sqlsession', 's', ''));	// qleion
+	console.log(replaceAll2('sqlsession', 's', ''));	// qleion
+	function replaceAll(word, letter, toletter) {
+		var list = word.split('');
+		for(var i = 0; i < list.length; i++) {
+			list[i] = list[i].replace(letter, toletter);
+		}
+		var vocar = list.join(toletter);
+		return vocar;
+	}
+	
+	function replaceAll2(word, a, b) {
+		var list = word.split(a);
+		var vocar = list.join(b);
+		return vocar;
+		// return word.split(a).join(b);
+	}
+	
+	// String에 replaceAll 함수를 추가하는 방법.
+	// : String의 prototype에 추가하면 된다.
+	String.prototype.replaceAll = function (before, after) {
+		return this.split(before).join(after);
+	}
+	
+	var str = 'aazaazzaazaazaazaaaza';
+	console.log()
+</script>
+</head>
+<body>
+	
+</body>
+</html>

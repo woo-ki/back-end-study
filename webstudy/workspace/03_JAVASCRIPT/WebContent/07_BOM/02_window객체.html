@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- 일반 버튼 -->
+	<input type="button" value="창 열기" onclick="openWindow()" />
+	<input type="button" value="창 닫기" onclick="closeWindow()" />
+	<input type="button" value="창 선택" onclick="focusWindow()" />
+	
+	<script type="text/javascript">
+		var popup = null;
+		function openWindow() {
+			popup = open('PopUp.html', '', 'width=400, height=300, top=300, left=400');
+		}
+		function closeWindow() {
+			if(popup) {	// if(popup != null)
+				popup.close();
+			}
+		}
+		function focusWindow() {
+			popup.focus();
+		}
+	</script>
+</body>
+</html>

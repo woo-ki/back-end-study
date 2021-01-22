@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- 버튼을 누르면 QDATA.html의 데이터를 id="hello"로 가져와 표시하시오 -->
+	<input type="button" value="인사" onclick="getQ()" />
+	<br/><br/>
+	<div id="hello"></div>
+	
+	<script type="text/javascript">
+		function getQ() {
+			var xhr = new XMLHttpRequest();
+		
+			xhr.open('get', 'QDATA.html', false);
+			
+			xhr.send();
+			
+			document.getElementById('hello').textContent = xhr.response;
+		}
+	</script>
+</body>
+</html>

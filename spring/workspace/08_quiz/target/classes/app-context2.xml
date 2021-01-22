@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="engine2" class="com.koreait.quiz2.Engine">
+		<property name="fuelType" value="가솔린" />
+		<property name="cc" value="2800" />
+		<property name="hp" value="300" />
+		<property name="fuelEfficiency" value="6.7" />
+	</bean>
+	
+	<bean id="car2" class="com.koreait.quiz2.Car">
+		<property name="model" value="A9" />
+		<property name="engine" ref="engine2" />
+	</bean>
+
+</beans>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<ul>
+		<li>라면</li>
+		<li>떡볶이</li>
+		<li>튀김</li>
+		<li>어묵</li>
+		<li>순대</li>
+	</ul>
+	
+	<script type="text/javascript">
+		// 문제.
+		// 입력 대화상자로 입력 받은 메뉴 1개를 삭제 하시오.
+		var ul = document.getElementsByTagName('ul');
+		var li = document.querySelectorAll('li');
+		var menu = prompt('삭제할 메뉴를 입력하세요.');
+		for(var i = 0; i < li.length; i++) {
+			if(li[i].textContent == menu) {
+				ul[0].removeChild(li[i]);
+				break;
+			}
+			
+		}
+		
+	</script>
+</body>
+</html>

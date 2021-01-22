@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	td {
+		width: 150px;
+	}
+	ul {
+		list-style-type: none;
+		padding: 0px 102px 0px 0px;
+	}
+</style>
+</head>
+<body>
+	<div id="quiz1">
+	
+	</div>
+	<script type="text/javascript">
+		// quiz1
+		// 입력 대화상자로 입력된 구구단만 출력하시오.
+		var dan = Number(prompt('몇단을 출력할까요?'));
+		for(let i = 1; i < 10; i++) {
+			document.getElementById('quiz1').innerHTML += dan + ' * ' + i + ' = ' + (dan * i) + '<br />';
+		}
+	</script>
+	<div id="quiz2">
+	
+	</div>
+	<script type="text/javascript">
+		// quiz2
+		// 입력 대화상자로 시작하는 단과 종료하는 단을 입력 받아서
+		// 그 사이의 모든 구구단을 출력하시오.
+		var sDan = Number(prompt('몇단부터 출력할까요?'));
+		var eDan = Number(prompt('몇단까지 출력할까요?'));
+		if(sDan > eDan) {
+			var temp = sDan;
+			sDan = eDan;
+			eDan = temp;
+		}
+		for(var i = sDan; sDan <= eDan; sDan++)
+			for(var j = 1; j < 10; j++) {
+				document.getElementById('quiz2').innerHTML += sDan + ' * ' + j + ' = ' + (sDan * j) + '<br />';
+			}
+	</script>
+	<div id="quiz3"></div>
+	<div id="quiz4"></div>
+	<script>
+		var quiz3 = '<table><tbody><tr>';
+		for(var i = 2; i < 10; i++) {
+			quiz3 += '<td>';
+			for(var j = 1; j < 10; j++) {
+				quiz3 += i + 'x' + j + '=' + (i * j) + '<br />';
+			}
+			quiz3 += '</td>';
+		}
+		quiz3 += '</td></tbody></table>'
+		document.getElementById('quiz3').innerHTML = quiz3;
+		
+		var quiz4 = '';
+		for(var i = 2; i < 10; i++) {
+			quiz4 += '<ul>';
+			for(var j = 1; j < 10; j++) {
+				quiz4 += '<li>' + i + 'x' + j + '=' + (i * j) + '</li>';
+			}
+			quiz4 += '</ul>';
+		}
+		
+		document.querySelector('#quiz4').innerHTML = quiz4;
+		document.querySelector('#quiz4').style.display = 'flex';
+	</script>
+</body>
+</html>

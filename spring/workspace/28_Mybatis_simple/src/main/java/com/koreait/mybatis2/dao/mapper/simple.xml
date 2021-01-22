@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.koreait.mybatis2.dao.SimpleDao">
+
+	<select id="simpleList" resultType="com.koreait.mybatis2.dto.SimpleDto">
+		select
+			*
+		from
+			(select
+				rownum as rn, a.*
+			from
+				(select
+					*
+				from
+					simple
+				order by
+					no desc) a) b
+		where
+			b.rn between #{param1} and #{param2}
+	</select>
+	
+	<select id="totalRecord" resultType="int">
+		select
+			count(*)
+		from
+			simple
+	</select>
+	
+	<insert id="simpleInsert">
+		insert into
+			simple (no, writer, title, content, regdate)
+		values
+			(simple_seq.nextval, #{param1}, #{param2}, #{param3}, sysdate)
+	</insert>
+	
+	<select id="simpleView" parameterType="int" resultType="com.koreait.mybatis2.dto.SimpleDto" >
+		select
+			*
+		from
+			simple
+		where
+			no = #{no}
+	</select>
+	
+	<update id="simpleUpdate" parameterType="com.koreait.mybatis2.dto.SimpleDto">
+		update
+			simple
+		set
+			title = #{title},
+			content = #{content},
+			writer = #{writer}
+		where
+			no = #{no}
+	</update>
+	
+	<delete id="simpleDelete" parameterType="int">
+		delete
+		from
+			simple
+		where
+			no = #{no}
+	</delete>
+	
+</mapper>

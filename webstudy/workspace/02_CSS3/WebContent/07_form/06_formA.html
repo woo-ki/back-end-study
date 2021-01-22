@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	body {
+		box-sizing: border-box;
+		background: silver;
+	}
+	fieldset {
+		width: 350px;
+		margin: auto;
+		border-radius: 10px;
+		border: 1px solid gray;
+		background: gray;
+	}
+	fieldset .screen-out {
+		/* 
+			display:none; 과 같은 효과이다.
+		*/
+		width: 0px;
+		height: 0px;
+		position: absolute;
+		overflow: hidden;
+	}
+	fieldset > #login-id, fieldset > #login-pw {
+		width: 100%;
+		padding: 20px;
+		box-sizing: border-box;
+		border: 1px solid gray;
+	}
+	fieldset > #login-id {
+		border-radius: 10px 10px 0px 0px;
+	}
+	fieldset > #login-pw {
+		border-radius: 0px 0px 10px 10px;
+	}
+	fieldset > button {
+		box-sizing: border-box;
+		width: 100%;
+		margin-top: 40px;
+		margin-bottom: 30px;
+		padding: 20px;
+		border-radius: 10px;
+		box-sizing: border-box;
+		border: 1px solid gray;
+		background: green;
+	}
+	fieldset > button:hover {
+		background: black;
+		color: white;
+	}
+	.login-append {
+		overflow: hidden;
+	}
+	.login-find {
+		float: right;
+	}
+	.login-check {
+		float: left;
+	}
+	.login-find > .login-find-link {
+		text-decoration: none;
+		color: black;
+	}
+	.login-find > .login-find-link:hover {
+		color: crimson;
+	}
+</style>
+</head>
+<body>
+	<form method="post">
+		<fieldset>
+			<legend class="screen-out">로그인 정보 입력폼</legend>
+			<label class="screen-out" for="login-id">로그인</label>
+			<input type="text" name="email" id="login-id" placeholder="example@naver.com" />
+			
+			<label for="login-pw" class="screen-out">비밀번호</label>
+			<input type="password" name="pw" id="login-pw" placeholder="password" />
+
+			<button>로그인</button>
+			
+			<div class="login-append">
+				<div class="login-check">
+					<input type="checkbox" name="keep-login" id="keep-login" />
+					<label for="keep-login">로그인 유지</label>
+				</div>
+				<div class="login-find">
+					<a href="javascript: void(0)" class="login-find-link">아이디 찾기</a>
+					&nbsp;/&nbsp;
+					<a href="javascript: void(0)" class="login-find-link">비밀번호 찾기</a>
+				</div>
+			</div>
+		</fieldset>
+	</form>
+</body>
+</html>

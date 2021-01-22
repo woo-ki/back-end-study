@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="calculator1" class="com.koreait.quiz1.Calculator" />
+	
+	<bean id="gugudan1" class="com.koreait.quiz1.Gugudan">
+		<property name="startDan">
+			<value>3</value>
+		</property>
+		<property name="endDan">
+			<value>4</value>
+		</property>
+		<property name="startNum">
+			<value>5</value>
+		</property>
+		<property name="endNum">
+			<value>7</value>
+		</property>
+		<property name="calculator">
+			<ref bean="calculator1" />
+		</property>
+	</bean>
+</beans>

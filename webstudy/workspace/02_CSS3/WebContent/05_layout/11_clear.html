@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	/* .container {
+		width: 1000px;
+		height: 200px;
+		border: 1px solid black;
+		padding: 20px;
+		margin: 20px auto;
+	} */
+	.left-box {
+		box-sizing: border-box;
+		width: 400px;
+		height: 400px;
+		border: 1px solid black;
+		float: left;
+		background: skyblue;
+	}
+	.right-box {
+		box-sizing: border-box;
+		width: 400px;
+		height: 400px;
+		border: 1px solid black;
+		float: right;
+		background: skyblue;
+	}
+	
+	.footer {
+		box-sizing: border-box;
+		width: 800px;
+		height: 200px;
+		border: 1px solid black;
+		background: aqua;
+		clear: left;	/* float: left; 에서 벗어나시오. (left, right, both) */
+	}
+</style>
+</head>
+<body>
+	
+	<div class="left-box"></div>
+	<div class="left-box"></div>
+	<div class="footer"></div>
+</body>
+</html>

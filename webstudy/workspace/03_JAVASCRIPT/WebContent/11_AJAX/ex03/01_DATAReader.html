@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	onload = function () {
+		var xhr = new XMLHttpRequest;
+		xhr.open('get', 'DATA.csv', true);
+		xhr.send();
+		xhr.onreadystatechange = function () {
+			if(xhr.readyState == 4 && xhr.status == 200) {
+				var data = xhr.responseText
+				var people = data.split('\n');
+				
+				var message = '';
+				for(let i = 0; i < people.length; i++) {
+					var person = people[i].split(',');
+					message += '<tr>';
+					for(let j = 0; j < person.length; j++) {
+						message += '<td>' + person[j] + '</td>';
+						message += '</td>';
+					}	// inner for 끝
+				}	// outer for 끝
+				document.getElementById('content').innerHTML = message;
+			}
+		}
+	}
+</script>
+</head>
+<body>
+	<table border="1">
+		<thead>
+			<tr>
+				<td>이름</td>
+				<td>나이</td>
+				<td>주소</td>
+				<td>연락처</td>
+			</tr>
+		</thead>
+		<tbody id="content"></tbody>
+	</table>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- app-context1.xml 에서는 car만 만든다. -->
+	<!--  
+		<property> 태그는 setter를 이용해서 동작해요.
+		Namespaces 탭에서 p 속성을 선택하면 <property> 태그를 대신할 수 있어요.
+	-->
+	<!--  
+		<bean id="객체명" class="클래스명">
+			<property name="필드명" value="값" />
+		</bean>
+		
+		Namespaces 탭에서 p 속성을 선택하면 아래와 같이 바꿀 수 있어요.
+		<bean id="객체명" class="클래스명" p:필드명="값"
+	-->
+	<!--  
+		Car car = new Car();
+		car.setModel("A8");
+		car.setPrice(10000);
+	-->
+	<bean id="car" class="com.koreait.spring.Car" p:model="A8" p:price="10000" />
+
+</beans>

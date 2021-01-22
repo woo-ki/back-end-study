@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/*  
+		내부 함수
+		1. function 내부에 포함된 function을 의미한다.
+		2. function 내부에서만 호출이 가능하고, 외부에서는 호출이 불가능하다.
+	*/
+	
+	// 삼각형 넓이 : 너비(width) * 높이(height) / 2
+	// 1. 내부함수 : multiple, 두 값을 곱함
+	// 2. 외부함수 : 외부에 공개되는 함수, getTriangleArea
+	//				 내부함수 multiple의 결과 / 2
+	
+	// 외부함수 getTriangleArea 정의
+	function getTriangleArea(width, height) {
+		// 내부함수 multiple 정의
+		function multiple(a, b) {
+			a || (a = 1);	// a로 전달된 인수가 없으면 a에 1을 저장합니다. : if(!a) {a=1;} 과 같음
+			b || (b = 1);
+			return a * b;
+		}
+		return multiple(width, height) / 2;
+	}
+	
+	// 외부함수 호출
+	var triangleArea = getTriangleArea(3, 5);
+	console.log('삼각형 넓이: ' + triangleArea);
+	
+	// 문제.
+	// 원의 넓이: 파이(Math.PI) * 반지름의 제곱
+	
+	// 내부함수 : 제곱을 반환하는 getSquare 함수
+	// 외부함수 : 원의 넓이를 반환하는 getCircleArea 함수
+	
+	function getCircleArea(r) {
+		function getSquare(a) {
+			a || (a = 1);
+			return a ** 2;
+		}
+		return getSquare(r) * Math.PI;
+	}
+	var circle = getCircleArea(5);
+	console.log('원의 넓이: ' + circle);
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

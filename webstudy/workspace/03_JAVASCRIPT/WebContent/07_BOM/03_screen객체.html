@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	console.log('화면(scrren) 너비: ' + screen.width);
+	console.log('화면(scrren) 높이: ' + screen.height);
+
+	console.log('실제(scrren) 너비: ' + screen.availWidth);
+	console.log('실제(scrren) 높이: ' + screen.availHeight);
+	
+	// 너비 400, 높이 300 팝업을 브라우저 중앙에 열자
+	var winWidth = 400;
+	var winHeight = 300;
+	var myTop = (screen.availHeight - winHeight) / 2;
+	var left = (screen.availWidth - winWidth) / 2;
+	open('PopUp.html', '', 'width=' + winWidth + ', height=' + winHeight + ',top=' + myTop + ',left=' + left);
+</script>
+</head>
+<body>
+
+</body>
+</html>

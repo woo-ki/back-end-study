@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	.none {
+		display: none;
+	}
+	.check-ok {
+		display: block;
+		color: green;
+	}
+	.check-not {
+		display: block;
+		color: red;
+	}
+</style>
+<script type="text/javascript">
+	function emailCheck(f) {
+		// 유효한 이메일: 사용 가능한 이메일 입니다.(녹색)
+		// 유효하지 않은 이메일: 유효하지 않은 이메일 입니다.(빨간색)
+		var regExpEmail = /^[a-z][a-z0-9-_]+@[a-zA-Z0-9]{3,}(\.[a-zA-Z]{2,6}){1,2}$/;
+		var email = f.email.value;
+		var checker = document.getElementById('result');
+		var result = regExpEmail.test(email);
+		if(result) {
+			checker.className = 'check-ok';
+			// checker.setAttribute('class', 'check-ok');
+			checker.textContent = '사용 가능한 이메일 입니다.';
+		} else {
+			checker.className = 'check-not';
+			checker.textContent = '유효하지 않은 이메일 입니다.';
+		}
+	}
+</script>
+</head>
+<body>
+	<!-- 이메일 유효성 검사 -->
+	<form>
+		<input type="text" name="email" placeholder="example@gmail.com" />
+		<input type="button" value="검사" onclick="emailCheck(this.form)" />
+		<br /><br />
+		<div id="result" class="none">이메일 유효성 결과가 나타납니다.</div>
+	</form>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	body {
+		margin: 0px;
+		padding: 0px;
+	}
+	.container>ul {
+		background: black;
+		display: flex;
+		height: 50px;
+		list-style-type: none;
+		padding: 0px;
+		margin: 0px;
+		width: 800px;
+		box-sizing: border-box;
+	}
+	
+	.container>ul>li>.box {
+		color: white;
+		box-sizing: border-box;
+		height: 50px;
+		width: 200px;
+		line-height: 50px;
+		text-align: center;
+	}
+	
+	.container>ul>li>.box:hover {
+		background: red;
+	}
+	
+	.container>ul > li > ul {
+		background: lightgray;
+		visibility: hidden;
+		height: 110px;
+	}
+
+	.container>ul > li:hover > ul {
+		visibility: visible;
+	}
+</style>
+</head>
+<body>
+	<div class="container">
+		<ul>
+			<li><div class="box">메뉴1</div>
+				<ul>
+					<li>qq</li>
+					<li>qq</li>
+					<li>qq</li>
+				</ul></li>
+			<li><div class="box">메뉴2</div>
+				<ul>
+					<li>qq</li>
+					<li>qq</li>
+				</ul></li>
+			<li><div class="box">메뉴3</div>
+				<ul>
+					<li>qq</li>
+					<li>qq</li>
+					<li>qq</li>
+					<li>qq</li>
+				</ul></li>
+			<li><div class="box">메뉴4</div>
+				<ul>
+					<li>qq</li>
+					<li>qq</li>
+					<li>qq</li>
+					<li>qq</li>
+					<li>qq</li>
+				</ul></li>
+		</ul>
+	</div>
+</body>
+</html>

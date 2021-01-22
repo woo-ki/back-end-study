@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/*  
+		1. 1~20 사이의 난수가 발생되면 맞추기
+			1) 입력 대화상자를 이용해서 입력
+			2) 매 입력 마다 '정답' '오답' 출력
+			3) '정답' 을 몇 번만에 맞혔는지 함께 출력
+	*/
+	/*  
+		2. 적을 쓰러뜨려라.
+			1) 적의 에너지는 100이다.
+			2) 내가 한 번 공격할때마다 0~19 사이의 에너지를 닳게 한다.
+			3) 모든 공격은 자동으로 진행한다.
+			4) 공격마다 적의 남은 에너지를 그래프 형태로 출력한다.(에너지: 5 ■■■■■)
+			5) 몇 번만에 무찔렀는지 함께 출력한다.
+			6) 5% 확률로 한 번에 쓰러뜨릴 수 있다.
+	*/
+</script>
+<style type="text/css">
+	span {
+		display: inline-block;
+		width: 100px;
+	}
+</style>
+</head>
+<body>
+ 	<script type="text/javascript">
+		var r = parseInt(Math.random() * 20) + 1;
+		var count = 0;
+		while(true) {
+			var n = parseInt(prompt('숫자를 입력하세요(1~20)'));
+			if(isNaN(n) || n < 1 || n > 20) {
+				alert('옳바른 범위를 입력하세요.')
+				continue;
+			}
+			count++;
+			if(n > r) {
+				alert('오답, 다운!');
+			} else if(n < r) {
+				alert('오답, 업!');
+			} else {
+				alert('정답! ' + count + '회 만에 맞혔습니다.');
+				break;
+			}
+		}
+	</script>
+	<div id="quiz2"></div>
+	<script type="text/javascript">
+		var energy = 100;
+		var graph = '';
+		var count = 0;
+		for(var i = 1; i <= energy; i++) {
+			graph += '■';
+		}
+		document.getElementById('quiz2').innerHTML += '<span>에너지: ' + energy + '</span>' + graph + '<br />';
+		while(true) {
+			var graph = '';
+			var damage = 0;
+			if(Math.random() <= 0.05) {
+				damage = 100;
+			} else {
+				damage = parseInt(Math.random() * 20);
+			}
+			count++;
+			energy -= damage;
+			if(energy < 0) {
+				energy = 0;
+			}
+			if(energy != 0) {
+				for(var i = 1; i <= energy; i++) {
+					graph += '■';
+				}
+			}
+			if(energy != 100) {
+				for(var i = 1; i <= 100 - energy; i++) {
+					graph += '□';
+				}
+			}
+			document.getElementById('quiz2').innerHTML += '<span>에너지: ' + energy + '</span>' + graph + '<br />';
+			if(energy == 0) {
+				document.getElementById('quiz2').innerHTML += count + '회 만에 무찔렀습니다.';
+				break;
+			}
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- 문제. 아래와 같은 html문을 dom을 이용해서 구현하시오/ 영화, 여행, 게임은 배열로 만들어서 사용하시오 -->
+	<ul>
+		<li>영화</li>
+		<li>여행</li>
+		<li>게임</li>
+	</ul>
+	<script type="text/javascript">
+	
+		var ul = document.createElement('ul');
+		document.body.appendChild(ul);	//<body><ul></ul></body>
+
+		var hobby = ['영화', '여행', '게임']
+		for(var i = 0; i < 3; i++) {
+			var li = document.createElement('li');
+			ul.appendChild(li);
+			var text = document.createTextNode(hobby[i]);
+			li.appendChild(text);
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+label {
+	display: inline-block;
+	width: 120px;
+	text-align: right;
+}
+
+input + label {
+	display: inline;
+}
+
+.none {
+	display: none;
+	}
+
+.id-check-ok, .pw1-check-ok, .pw2-check-ok, .email-check-ok, .phone-check-ok, .sn-check-ok, .birth-check-ok {
+	diplay: inline;
+	color: green;
+}
+
+.id-check-not, .pw1-check-not, .pw2-check-not, .email-check-not, .phone-check-not, .sn-check-not, .birth-check-not {
+	diplay: inline;
+	color: red;
+}

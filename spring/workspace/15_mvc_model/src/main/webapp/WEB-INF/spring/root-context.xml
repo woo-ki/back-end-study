@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<bean id="p1" class="com.koreait.mvc05.dto.PersonDto">
+		<property name="name" value="갑순이" />
+		<property name="age" value="24" />
+	</bean>	
+	<bean id="p2" class="com.koreait.mvc05.dto.PersonDto">
+		<property name="name" value="순돌이" />
+		<property name="age" value="28" />
+	</bean>	
+	<bean id="p3" class="com.koreait.mvc05.dto.PersonDto">
+		<property name="name" value="김인아" />
+		<property name="age" value="22" />
+	</bean>	
+	<bean id="list" class="java.util.ArrayList">
+		<constructor-arg>
+			<list>
+				<ref bean="p2"/>
+				<ref bean="p3"/>
+			</list>
+		</constructor-arg>
+	</bean>
+	
+</beans>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	* {
+		box-sizing: border-box;
+	}
+	body {
+		background: gray;
+	}
+	.screen-out {
+		display: none;
+	}
+	fieldset {
+		width: 100px;
+		margin: auto;
+		background: lightgray;
+		border: 1px solid lightgray;
+		border-radius: 10px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+	fieldset > input, fieldset > button {
+		display: block;
+		padding: 20px;
+		width: 380px;
+	}
+	fieldset > button {
+		margin-top: 30px;
+		margin-bottom: 20px;
+		background: gray;
+		border: none;
+		border-radius: 10px;
+	}
+	fieldset > button:hover {
+		background: orange;
+	}
+	.login-append {
+		display: flex;
+	}
+	.login-find {
+		margin-left: 52px;
+	}
+	.login-find > a {
+		text-decoration: none;
+		color: black;
+	}
+	
+</style>
+</head>
+<body>
+	<form method="post">
+		<fieldset>
+			<legend class="screen-out">로그인 정보 입력폼</legend>
+			<label class="screen-out" for="login-id">로그인</label>
+			<input type="text" name="email" id="login-id" placeholder="example@naver.com" />
+			
+			<label for="login-pw" class="screen-out">비밀번호</label>
+			<input type="password" name="pw" id="login-pw" placeholder="password" />
+			
+			<button>로그인</button>
+			
+			<div class="login-append">
+				<div class="login-check">
+					<input type="checkbox" name="keep-login" id="keep-login" />
+					<label for="keep-login">로그인 유지</label>
+				</div>
+				<div class="login-find">
+					<a href="javascript: void(0)" class="login-find-link">아이디 찾기</a>
+					&nbsp;/&nbsp;
+					<a href="javascript: void(0)" class="login-find-link">비밀번호 찾기</a>
+				</div>
+			</div>
+		</fieldset>
+	</form>
+</body>
+</html>

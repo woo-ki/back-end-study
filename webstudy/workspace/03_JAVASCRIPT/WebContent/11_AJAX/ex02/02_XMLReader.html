@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var xhr = new XMLHttpRequest;
+	xhr.open('get', 'DATA.xml', true);
+	xhr.send();
+	xhr.onreadystatechange = function() {
+		if(xhr.readyState == 4 && xhr.status == 200) {
+			// XML 데이터는 responseXML 이다
+			var XMLData = xhr.responseXML;
+			// console.log(XMLData);
+			// console.log(XMLData.childNodes[0]); <people> 태그
+			// console.log(XMLData.childNodes[0].childNodes[0]);	<people> 태그 아래 작성한 텍스트
+			// console.log(XMLData.childNodes[0].childNodes[1]);	<person> 태그
+			// console.log(XMLData.childNodes[0].childNodes[1].childNodes[0]);	<person> 태그 아래 작성한 텍스트
+			// console.log(XMLData.childNodes[0].childNodes[1].childNodes[1]);	<name> 태그
+			// console.log(XMLData.childNodes[0].childNodes[1].childNodes[1].childNodes[0].nodeValue);
+			
+			var name = XMLData.childNodes[0].childNodes[1].childNodes[1].childNodes[0].nodeValue;
+			var age = XMLData.childNodes[0].childNodes[1].childNodes[3].childNodes[0].nodeValue;
+			var address = XMLData.childNodes[0].childNodes[1].childNodes[5].childNodes[0].nodeValue;
+			var phone = XMLData.childNodes[0].childNodes[1].childNodes[7].childNodes[0].nodeValue;
+			document.write('<h3>' + name + ', ' + age + ', ' + address + ', ' + phone + '</h3>')
+		}
+	}
+</script>
+</head>
+<body>
+
+</body>
+</html>

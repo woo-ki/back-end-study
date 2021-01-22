@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://kit.fontawesome.com/07b67006ce.js" crossorigin="anonymous"></script>
+<style type="text/css">
+	* {
+		box-sizing: border-box;
+	}
+	.login-wrap {
+		display: flex;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+	.login-wrap .icon, .login-wrap .login-button {
+		background: lightgray;
+	}
+	.login-wrap .id-wrap, .login-wrap .pw-wrap {
+		display: flex;
+	}
+	input {
+		padding: 10px 5px;
+		margin-left: 0px;
+		border: 1px solid lightgray;
+		margin-top: 2px;
+		margin-bottom: 2px;
+		border-radius: 0px 0px 5px 0px;
+	}
+	.icon {
+		height: 37.2px;
+		width: 37.2px;
+		text-align: center;
+		margin-top: 2px;
+		margin-bottom: 2px;
+		border-radius: 5px 0px 0px 0px;
+	}
+	.icon > i {
+		line-height: 37.2px;
+	}
+	.login-wrap .login-button {
+		margin-top: 2px;
+		margin-bottom: 2px;
+		margin-left: 5px;
+		width: 78.4px;
+		height: 78.4px;
+		line-height: 78.4px;
+		border-radius: 5px;
+	}
+	.login-wrap > .right-wrap {
+		text-align: center;
+	}
+</style>
+</head>
+<body>
+	<div class="login-wrap">
+		<div class="left-wrap">
+			<div class="id-wrap">
+				<div class="icon">
+					<!-- 아이콘 -->
+					<i class="fas fa-user"></i>
+				</div>
+				<input type="text" placeholder="Username" />
+			</div>
+			<div class="pw-wrap">
+				<div class="icon">
+					<!-- 아이콘 -->
+					<i class="fas fa-key"></i>
+				</div>
+				<input type="password" placeholder="●●●●" />
+			</div>
+		</div>
+		<div class="right-wrap">
+			<div class="login-button">
+				로그인
+			</div>
+		</div>
+	</div>
+</body>
+</html>

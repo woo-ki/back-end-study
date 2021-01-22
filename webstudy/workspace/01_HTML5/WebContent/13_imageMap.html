@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- 
+		이미지 맵
+		1. 이미지의 일부에만 링크를 생성한다.
+		2. 방식
+			<img usemap="#맵이름" src="이미지경로">
+			<map name="맵이름">
+				<area href="링크경로" shape="rect/circle" coords="좌표">
+			</map>
+		3. coords 좌표 작성 방법(단위는 px)
+			1) shape="rect" coords="시작x, 시작y, 종료x, 종료y"
+			2) shape="circle" coords="중심x, 중심y, 반지름"
+	 -->
+	<img usemap="#main" src="assets/images/event.jpg">
+	<map name="main">
+		<area shape="rect" coords="734, 643, 941, 694"
+			href="https://web.dominos.co.kr/main">
+		<area shape="circle" coords="428,104,25"
+			href="https://web.dominos.co.kr/main">
+		<area shape="rect" coords="506, 642, 714, 693"
+			href="https://web.dominos.co.kr/event/entry/1283">
+	</map>
+</body>
+</html>

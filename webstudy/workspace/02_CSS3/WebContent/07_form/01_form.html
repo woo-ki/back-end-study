@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	fieldset {
+		width: 400px;
+	}
+	legend {
+		display: none;
+	}
+	ul {
+		list-style-type: none;
+	}
+	ul > li {
+		margin: 10px;
+	}
+	label {
+		/* margin-right: 20px; */
+		width: 80px;
+		display: inline-block;
+	}
+	input[type="text"] {
+		width: 120px;
+	}
+</style>
+</head>
+<body>
+	<form>
+		<!-- 
+			1. action: 입력테이블을 어디로 보낼 것인가? 
+			2. method
+				1) get :보안이 필요하지 않을 때 (단순 검색)
+				2) post: 보안이 필요할 때(로그인, 회원가입)
+		-->
+			
+	</form>
+	
+	<form>
+		<fieldset>
+			<legend>등록 정보</legend>
+			<ul>
+				<li>
+					<label for="member">참여인원</label>
+					<input type="text" name="member" id="member" />
+				</li>
+				<li>
+					<label for="item">지원물품</label>
+					<input type="text" name="item" id="item" />
+				</li>
+				<li>
+					<label for="state">희망단계</label>
+					<input type="range" name="state" id="state" min="1" max="10" value="5" />
+				</li>
+			</ul>
+		</fieldset>
+	</form>
+</body>
+</html>

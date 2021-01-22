@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	// 1~100 사이에서 3의 배수들은 제외하고 출력하기
+	var message = '';
+	for(let n = 1; n <= 100; n++) {
+		if(n % 3 == 0) {
+			continue;	//for문의 n++로 이동
+		}
+		message += n + '&nbsp';
+	}
+	document.write('<b>' + message + '<br /></b>');
+	
+	// quiz
+	// 5개의 양수를 입력 받아서 그 평균을 출력하시오.
+	// 양수 이외의 데이터가 입력되면 '양수가 아닙니다. 다시 입력하세요'
+	// 오류 메시지를 출력하고 재입력을 받으시오.
+	var avg = 0.0;
+	for(var i = 0; i < 5; i++) {
+		var a = parseFloat(prompt((i + 1) + '번 째 수를 입력하세요'));
+		if (a < 0 || isNaN(a)) {
+			alert('양수가 아닙니다. 다시 입력하세요.');
+			i--;
+		} else {
+			avg += a;
+		}
+	}
+	avg /= 5;
+	document.write('<b>평균은 ' + avg + '</b>');
+</script>
+</head>
+<body>
+
+</body>
+</html>

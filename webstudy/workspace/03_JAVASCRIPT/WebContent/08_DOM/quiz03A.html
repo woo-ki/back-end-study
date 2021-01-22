@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	
+	#status {
+		display: none;
+	}
+	#status ~ span > #answer {
+		visibility: hidden;
+	}
+	#status ~ #visible {
+		display: none;
+	}
+	#status:checked ~ span > #answer {
+		visibility: visible;
+	}
+	#status:checked ~ #visible {
+		display: inline;
+	}
+	#status:checked ~ #hidden {
+		display: none;
+	}
+	
+</style>
+</head>
+<body>
+	<h3>다음 중 존재하지 않는 태그는?</h3>
+	<ol>
+		<li>mother</li>
+		<li>div</li>
+		<li>p</li>
+		<li>ul</li>
+	</ol>
+	<div class="container">
+		<input id="status" type="checkbox" />
+		<span>정답 보기 : [<span id="answer">1</span>]</span>&nbsp;&nbsp;&nbsp;
+		<input id="visible" type="button" value="정답감추기" onclick="hide()" />
+		<input id="hidden" type="button" value="정답보이기" onclick="show()"/>
+	</div>
+	
+	<script type="text/javascript">
+		var checked = document.getElementById('status');
+		function hide() {
+			checked.checked = false;
+		}
+		function show() {
+			checked.checked = true;
+		}
+	</script>
+	
+	
+</body>
+</html>

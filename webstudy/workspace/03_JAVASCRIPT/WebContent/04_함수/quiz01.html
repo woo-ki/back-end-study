@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	// 시계 만들기
+	// 2020년 11월 19일 15시 37분 30초
+</script>
+<style type="text/css">
+	div {
+		margin: 30px auto;
+		font-weight: bold;
+		font-size: 30px;
+		color: blue;
+		position: absolute;
+		left: 50%;
+		transform: translate(-50%);
+	}
+	span {
+		color: red;
+	}
+</style>
+</head>
+<body>
+	<div id = "clock">
+		<span id = "year"></span>년&nbsp;
+		<span id = "month"></span>월&nbsp;
+		<span id = "day"></span>일&nbsp;
+		<span id = "hour"></span>시&nbsp;
+		<span id = "min"></span>분&nbsp;
+		<span id = "sec"></span>초
+	</div>
+	<script type="text/javascript">
+		var now = new Date();
+		document.getElementById('year').textContent = now.getFullYear();
+		document.getElementById('month').textContent = now.getMonth() + 1;
+		document.getElementById('day').textContent = now.getDate();
+		document.getElementById('hour').textContent = now.getHours();
+		document.getElementById('min').textContent = now.getMinutes();
+		document.getElementById('sec').textContent = now.getSeconds();
+		
+		(function watch() {
+			setTimeout(function () {
+				// 현재 시간 보여주기
+				var now = new Date();
+				document.getElementById('year').textContent = now.getFullYear();
+				document.getElementById('month').textContent = now.getMonth() + 1;
+				document.getElementById('day').textContent = now.getDate();
+				document.getElementById('hour').textContent = now.getHours();
+				document.getElementById('min').textContent = now.getMinutes();
+				document.getElementById('sec').textContent = now.getSeconds();
+				// 재귀함수 호출
+				watch();
+			}, 1000);
+		})();
+	</script>
+</body>
+</html>

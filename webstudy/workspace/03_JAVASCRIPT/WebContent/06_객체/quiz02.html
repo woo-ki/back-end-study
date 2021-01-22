@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	// 문제.
+	// Student 생성자 함수를 정의하시오.
+	// 1. 매개변수: name, kor, eng, mat
+	// 2. 프로퍼티: name, kor, eng, mat / getAverage(), getGrade()
+	// 3. Student 3명 임의로 생성하시오.
+	// 4. students 배열에 3명을 저장하시오.
+	// 5. Student 3명의 정보를 콘솔에 출력하시오.
+	
+	function Student(name, kor, eng, mat) {
+		this.name = name;
+		this.kor = kor;
+		this.eng = eng;
+		this.mat = mat;
+		
+		// function들의 내용은 모든 객체가 동일한 내용을 참조하게 되므로
+		// 공용 공간인 prototype에 저장해 두는 것이 좋다.
+		this.__proto__.getAverage = function() {
+			return (this.kor + this.eng + this.mat) / 3;
+		};
+		
+		this.__proto__.getGrade = function() {
+			if(this.getAverage() >= 90) {
+				return 'A';
+			} else if(this.getAverage() >= 80) {
+				return 'B';
+			} else if(this.getAverage() >= 70) {
+				return 'C';
+			} else if(this.getAverage() >= 60) {
+				return 'D';
+			} else {
+				return 'F';
+			}
+		};
+	}
+	
+	var students = [
+		new Student("김길동", 90, 80, 90),
+		new Student("이길동", 100, 90, 95),
+		new Student("박길동", 60, 85, 70)
+	];
+	
+	var eIndex = ["name", "kor", "eng", "mat", "getAverage", "getGrade"];
+	var kIndex = ["이름", "국어", "영어", "수학", "평균", "학점"];
+	
+	for(var i = 0; i < students.length; i++) {
+		for(var p in students[i]) {
+			if(typeof students[i][p] == 'function'){
+				console.log(kIndex[eIndex.indexOf(p)] + ': ' + students[i][p]());
+			} else {
+				console.log(kIndex[eIndex.indexOf(p)] + ': ' + students[i][p]);
+			}
+		}
+	}
+	
+/* 		
+	for(var i = 0; i < students.length; i++) {
+ 		console.log('이름: ' + students[i].name);
+		console.log('국어: ' + students[i].kor);
+		console.log('영어: ' + students[i].eng);
+		console.log('수학: ' + students[i].mat);
+		console.log('학점: ' + students[i].getAverage());
+		console.log('학점: ' + students[i].getGrade());
+		
+		// with문을 활용해서 코드를 줄여볼 수 있다.
+		with(students[i]) {	// 모두 students[i]가 붙는다.
+			console.log('이름: ' + name);
+			console.log('국어: ' + kor);
+			console.log('영어: ' + eng);
+			console.log('수학: ' + mat);
+			console.log('평균: ' + getAverage());
+			console.log('학점: ' + getGrade());
+		}
+	}
+*/	
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

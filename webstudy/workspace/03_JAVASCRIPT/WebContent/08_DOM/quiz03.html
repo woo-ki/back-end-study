@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+
+</style>
+</head>
+<body>
+	<h3>다음 중 존재하지 않는 태그는?</h3>
+	<ol>
+		<li>mother</li>
+		<li>div</li>
+		<li>p</li>
+		<li>ul</li>
+	</ol>
+	<span>정답 보기 : [<span id="answer">1</span>]</span>&nbsp;&nbsp;&nbsp;
+	<input id="btn" type="button" value="정답보이기" onclick="show()" />
+	
+	<script type="text/javascript">
+		// 문서 객체 저장하기
+		var answer = document.getElementById('answer');
+		var btn = document.getElementById('btn');
+		
+
+		// 시작 상황
+		answer.style.visibility = 'hidden';
+
+		function show() {
+			btn.value = '정답숨기기';
+			answer.style.visibility = 'visible';
+			btn.setAttribute('onclick', 'hide()');
+		}
+		function hide() {
+			btn.value = '정답보이기';
+			answer.style.visibility = 'hidden';
+			btn.setAttribute('onclick', 'show()');
+		}
+	</script>
+	
+	
+</body>
+</html>

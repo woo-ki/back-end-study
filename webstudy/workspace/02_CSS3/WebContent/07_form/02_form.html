@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	fieldset {
+		width: 500px;
+		border: 1px solid silver;
+	}
+	input {
+		margin: 0px;
+	}
+	.blind {
+		display: none;
+	}
+</style>
+</head>
+<body>
+	<form>
+		<fieldset>
+			<legend class="blind">신청과목</legend>
+			이 달에 신청할 과목을 선택하세요<span style="font-size: 12px">(1과목만 가능)</span><br />
+			<input type="radio" id="speaking" name="subject" value="speaking" checked />
+			<label for="speaking">회화</label>
+			<input type="radio" id="grammar" name="subject" value="grammar" />
+			<label for="grammar">문법</label>
+			<input type="radio" id="writing" name="subject" value="writing" />
+			<label for="writing">작문</label>
+		</fieldset>
+		<br />
+		<fieldset>
+			<legend class="blind">뉴스주제</legend>
+			메일로 받고 싶은 뉴스 주제를 선택해 주세요<span style="font-size: 12px">(복수 선택 가능)</span><br />
+			<input type="checkbox" id="foriegn" name="news" value="foriegn" />
+			<label for="foriegn">해외 단신</label>
+			<input type="checkbox" id="5m-speaking" name="news" value="5m-speaking" />
+			<label for="5m-speaking">5분 회화</label>
+			<input type="checkbox" id="pop" name="news" value="pop" />
+			<label for="pop">모닝팝스</label>
+		</fieldset>
+	</form>
+</body>
+</html>
