@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="mybatis.mapper.mapper">
+	
+	<!--  
+		1. 사용태그
+			1) <select>
+			2) <insert>
+			3) <update>
+			4) <delete>
+		2. 쿼리문에 전달할 파라미터가 있는 경우
+			: parameterType 속성
+			예시)
+			<select parameterType="int">
+			<select parameterType="dto.LimeDto">
+			<select parameterType="Map">
+		3. 쿼리문의 결과
+			: resultType 속성
+			1) 결과가 List<LimeDto>인 경우	<select resultType="dto.LimeDto">
+			2) 결과가 LimeDto인 경우		<select resultType="dto.LimeDto">
+			3) 결과가 0 또는 1인 경 		<insert>, <update>, <delete> 태그는 resultType을 작성하지 않는다
+	-->
+	<select id="list" resultType="dto.LimeDto">
+		select
+			*
+		from
+			lime
+		order by
+			no
+	</select>
+	
+	<insert id="insert" parameterType="dto.LimeDto">
+		insert into
+			lime (no, writer, title, content, postdate)
+		values
+			(lime_seq.nextval, #{writer}, #{title}, #{content}, sysdate)
+	</insert>
+	
+	<select id="view" resultType="dto.LimeDto">
+		select
+			*
+		from
+			lime
+		where
+			no = #{no}
+	</select>
+	
+	<delete id="delete" parameterType="int">
+		delete
+		from
+			lime
+		where
+			no = #{no}
+	</delete>
+	
+	<update id="update" parameterType="dto.LimeDto">
+		update
+			lime
+		set
+			title = #{title},
+			content = #{content}
+		where
+			no = #{no}
+	</update>
+	
+</mapper>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="mybatis.mapper.bbs">
+	
+	<select id="getTotalRecord" resultType="int">
+		select
+			count(*)
+		from
+			bbs
+	</select>
+	
+	<select id="bbsList" resultType="dto.BBSDto" parameterType="common.PageVo">
+		select
+			*
+		from
+			(select
+				rownum as rn, a.*
+			from
+				(select
+					*
+				from
+					bbs
+				order by
+					bbs_no desc) a) b
+		where
+			rn between #{beginRecord} and #{endRecord}
+	</select>
+	
+	<insert id="bbsInsert" parameterType="dto.BBSDto">
+		insert into
+			bbs (bbs_no, bbs_writer, bbs_title, bbs_content, bbs_pw, bbs_hit, bbs_ip, bbs_date)
+		values
+			(bbs_seq.nextval, #{bbs_writer}, #{bbs_title}, #{bbs_content}, #{bbs_pw}, 0, #{bbs_ip}, sysdate)
+	</insert>
+	
+	<select id="bbsView" parameterType="int" resultType="dto.BBSDto">
+		select
+			*
+		from
+			bbs
+		where
+			bbs_no = #{bbs_no}
+	</select>
+	
+	<update id="bbsUpdateHit" parameterType="int">
+		update
+			bbs
+		set
+			bbs_hit = bbs_hit + 1
+		where
+			bbs_no = #{bbs_no}
+	</update>
+	
+	<delete id="bbsDelete" parameterType="int">
+		delete
+		from
+			bbs
+		where
+			bbs_no = #{bbs_no}
+	</delete>
+	
+	<update id="bbsUpdate" parameterType="dto.BBSDto">
+		update
+			bbs
+		set
+			bbs_title = #{bbs_title},
+			bbs_content = #{bbs_content}
+		where
+			bbs_no = #{bbs_no}
+	</update>
+
+</mapper>

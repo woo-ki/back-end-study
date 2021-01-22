@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form method="post">
+		<fieldset>
+			<legend>회원가입 양식</legend>
+			<label for="id">아이디</label>
+			<input type="text" id="id" name="id" /><br/>
+			<label for="pw">비밀번호</label>
+			<input type="password" id="pw" name="pw" /><br/>
+			<input type="radio" name="gender" id="m" value="남자"/>
+			<label for="m">남</label>
+			<input type="radio" name="gender" id="f" value="여자"/>
+			<label for="f">여</label><br/>
+			<input type="checkbox" name="hobbies" id="h1" value="영화" />
+			<label for="h1">영화</label>
+			<input type="checkbox" name="hobbies" id="h2" value="여행" />
+			<label for="h2">여행</label>
+			<input type="checkbox" name="hobbies" id="h3" value="운동" />
+			<label for="h3">운동</label><br/>
+			<select name="country">
+				<option value="서울">서울</option>
+				<option value="인천">인천</option>
+				<option value="경기">경기</option>
+			</select><br/>
+			<select name="jobs" multiple>
+				<option value="작가">작가</option>
+				<option value="의사">의사</option>
+				<option value="프로그래머">프로그래머</option>
+				<option value="주부">주부</option>
+			</select><br/>
+			<textarea rows="5" cols="50" name="memo"></textarea><br/>
+			<input type="hidden" name="height" value="180.5" />
+			<input type="hidden" name="weight" value="85.5" />
+			<input type="button" value="전송" onclick="fn_send(this.form)" />
+		</fieldset>
+	</form>
+	<script type="text/javascript">
+		function fn_send(f) {
+			f.action = '/01_SERVLET/Quiz02';
+			f.submit();
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="mybatis.mapper.guest">
+	
+	<select id="selectGuestList" resultType="dto.GuestDto">
+		select
+			*
+		from
+			guest
+	</select>
+	
+	<select id="queryList" resultType="dto.GuestDto" parameterType="String">
+		select
+			*
+		from
+			guest
+		where
+			gtitle like '%' || #{query} || '%'
+			or gcontent like '%' || #{query} || '%'
+	</select>
+	
+	<insert id="guestInsert" parameterType="dto.GuestDto">
+		insert
+		into
+			guest (gno, gwriter, gtitle, gcontent, gpw, gfilename, gpostdate)
+		values
+			(guest_seq.nextval, #{gWriter}, #{gTitle}, #{gContent}, #{gPw}, #{gFilename}, sysdate)
+	</insert>
+	
+	<select id="selectBygNo" resultType="dto.GuestDto" parameterType="int">
+		select
+			*
+		from
+			guest
+		where
+			gno = #{gNo}
+	</select>
+	
+	<update id="guestDeleteFile" parameterType="int">
+		update
+			guest
+		set
+			gfilename = null
+		where
+			gno = #{gNo}
+	</update>
+	
+	<delete id="guestDelete" parameterType="int">
+		delete
+		from
+			guest
+		where
+			gno = #{gNo}
+	</delete>
+	
+	<update id="guestUpdate" parameterType="dto.GuestDto">
+		update
+			guest
+		set
+			<if test="gFilename == null">
+				gtitle = #{gTitle}, gcontent = #{gContent}
+			</if>
+			<if test="gFilename != null">
+				gtitle = #{gTitle}, gcontent = #{gContent}, gfilename = #{gFilename}
+			</if>
+		where
+			gno = #{gNo}
+	</update>
+
+</mapper>

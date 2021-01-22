@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="mybatis.mapper.emp">
+	
+	<select id="list" resultType="dto.EmpDto">
+		select
+			*
+		from
+			emp
+	</select>
+	
+	<select id="deptList" parameterType="Map" resultType="dto.EmpDto">
+		select
+			*
+		from
+			emp
+		where
+			department_id in 
+			<foreach item="department_id" collection="department_list" open="(" close=")" separator=", ">
+				#{department_id}
+			</foreach>
+	</select>
+	
+	<!--
+	<select id="dynamicList" parameterType="Map" resultType="dto.EmpDto">
+		select
+			*
+		from
+			emp
+		where
+			<if test="column=='employee_id'">
+				employee_id = #{query}
+			</if>
+			<if test="column=='last_name'">
+				last_name = initcap(#{query})
+			</if>
+	</select>
+	-->
+	
+	<select id="dynamicList" parameterType="Map" resultType="dto.EmpDto">
+		select
+			*
+		from
+			emp
+		where
+			${column} = initcap(#{query})
+	</select>
+	<!--  
+		#{column} = #{query}
+		'employee_id' = '102'
+		
+		${column} = #{query}
+		employee_id = '102'
+		
+		#과 $의 차이 '' (문자,숫자 처리방식)
+		# : 문자 처리방식 '문자'
+		$ : 숫자 처리방식 숫자
+	-->
+
+</mapper>

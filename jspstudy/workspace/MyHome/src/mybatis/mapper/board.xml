@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="mybatis.mapper.board">
+	
+	<select id="getTotalRecord" resultType="int">
+		select
+			count(*)
+		from
+			board
+	</select>
+	
+	<select id="boardList" parameterType="Map" resultType="dto.BoardDto">
+		select
+			*
+		from
+			(select
+				rownum as rn, a.*
+			from
+				(select
+					*
+				from
+					board
+				order by
+					bgroup desc,
+					bgroupord) a) b
+		where
+			b.rn between #{beginRecord} and #{endRecord}
+	</select>
+	
+	<insert id="boardInsert" parameterType="dto.BoardDto">
+		insert into
+			board
+		values
+			(board_seq.nextval,
+			#{mId},
+			#{bTitle},
+			#{bContent},
+			#{bIp},
+			0,
+			sysdate,
+			sysdate,
+			0,
+			board_seq.currval,
+			0,
+			0)
+	</insert>
+	
+	<select id="boardView" parameterType="int" resultType="dto.BoardDto">
+		select
+			*
+		from
+			board
+		where
+			bno = #{bNo}
+	</select>
+	
+	<update id="boardUpdatebHit" parameterType="int">
+		update
+			board
+		set
+			bhit = bhit + 1
+		where
+			bno = #{bNo}
+	</update>
+	
+	<update id="boardDelete" parameterType="int">
+		update
+			board
+		set
+			bdelete = -1
+		where
+			bno = #{bNo}
+	</update>
+	
+	<insert id="replyInsert" parameterType="dto.BoardDto">
+		insert into
+			board
+		values
+			(board_seq.nextval,
+			#{mId},
+			#{bTitle},
+			#{bContent},
+			#{bIp},
+			0,
+			sysdate,
+			sysdate,
+			0,
+			#{bGroup},
+			#{bGroupOrd},
+			#{bDepth})
+	</insert>
+	
+	<update id="replyUpdatebGroupOrd" parameterType="dto.BoardDto">
+		update
+			board
+		set
+			bgroupord = bgroupord + 1
+		where
+			bgroup = #{bGroup}
+			and bgroupord > #{bGroupOrd}
+	</update>
+	
+	<select id="getTotalQueryRecord" resultType="int" parameterType="Map">
+		select
+			count(*)
+		from
+			board
+		where
+			(<if test="column != 'both'">
+				${column} like '%' || #{query} || '%'
+			</if>
+			<if test="column == 'both'">
+				btitle like '%' || #{query} || '%'
+				or bcontent like '%' || #{query} || '%'
+			</if>)
+			and bdelete = 0
+	</select>
+	
+	<select id="queryBoardList" parameterType="Map" resultType="dto.BoardDto">
+		select
+			*
+		from
+			(select
+				rownum as rn, a.*
+			from
+				(select
+					*
+				from
+					board
+				where
+					(<if test="column != 'both'">
+						${column} like '%' || #{query} || '%'
+					</if>
+					<if test="column == 'both'">
+						btitle like '%' || #{query} || '%'
+						or bcontent like '%' || #{query} || '%'
+					</if>)
+					and bdelete = 0
+				order by
+					bgroup desc,
+					bgroupord) a) b
+		where
+			b.rn between #{beginRecord} and #{endRecord}
+	</select>
+	
+	<select id="getTotalMyRecord" resultType="int" parameterType="String">
+		select
+			count(*)
+		from
+			board
+		where
+			mid = #{mId}
+			and bdelete = 0
+	</select>
+	
+	<select id="myBoardList" parameterType="Map" resultType="dto.BoardDto">
+		select
+			*
+		from
+			(select
+				rownum as rn, a.*
+			from
+				(select
+					*
+				from
+					board
+				where
+					mid = #{mId}
+					and bdelete = 0
+				order by
+					bgroup desc,
+					bgroupord) a) b
+		where
+			b.rn between #{beginRecord} and #{endRecord}
+	</select>
+
+</mapper>
