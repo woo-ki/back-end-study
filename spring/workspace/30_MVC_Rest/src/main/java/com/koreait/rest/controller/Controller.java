@@ -16,4 +16,10 @@ public class Controller {
 	public String memberManagePage() {
 		return "member/memberManagePage";
 	}
+	
+	// 페이징 연습용
+	@GetMapping(value="memberManagePage2.do")
+	public String memberManagePage2() {
+		return "member/memberManagePage2";
+	}
 }

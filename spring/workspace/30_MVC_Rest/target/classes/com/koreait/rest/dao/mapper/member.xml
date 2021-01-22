@@ -10,6 +10,29 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		  FROM MEMBER
 	  ORDER BY NO
 	</select>
+	<select id="memberList2" resultType="com.koreait.rest.dto.MemberDto">
+		select
+			*
+		from
+			(select
+				rownum as rn, a.* 
+			from
+				(select
+					*
+				from
+					member
+				order by
+					no desc) a) b
+		where
+			b.rn between #{param1} and #{param2}
+	</select>
+	
+	<select id="totalRecord" resultType="int">
+		select
+			count(*)
+		from
+			member
+	</select>
 	<select id="memberView" parameterType="int" resultType="com.koreait.rest.dto.MemberDto">
 		SELECT *
 		  FROM MEMBER

@@ -11,12 +11,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.koreait.rest.command.MemberCommand;
 import com.koreait.rest.command.MemberDeleteCommand;
 import com.koreait.rest.command.MemberInsertCommand;
 import com.koreait.rest.command.MemberListCommand;
+import com.koreait.rest.command.MemberListCommand2;
 import com.koreait.rest.command.MemberUpdateCommand;
 import com.koreait.rest.command.MemberViewCommand;
 import com.koreait.rest.dto.MemberDto;
@@ -30,6 +32,15 @@ public class MemberController {
 	@GetMapping(value="member", produces="application/json; charset=utf-8")
 	public Map<String, Object> memberList(Model model) {
 		command = new MemberListCommand();
+		return command.execute(sqlSession, model);
+	}
+	
+	@GetMapping(value="memberPaging", produces="application/json; charset=utf-8")
+	public Map<String, Object> memberPaging(
+			@RequestParam("page") int page,
+			Model model) {
+		model.addAttribute("page", page);
+		command = new MemberListCommand2();
 		return command.execute(sqlSession, model);
 	}
 	

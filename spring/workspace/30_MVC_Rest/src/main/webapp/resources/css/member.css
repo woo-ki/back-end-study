@@ -1,5 +1,8 @@
 @CHARSET "UTF-8";
 
+* {
+	box-sizing: border-box;
+}
 .wrap {
 	display: flex;
 }
@@ -11,13 +14,34 @@
 }
 table {
 	border-collapse: collapse;
+	width: 560px;
 }
 td, th {
 	border-top: 1px solid black;
 	border-bottom: 1px solid black;
 	padding: 5px 10px;
 	text-align: center;
+	width: 80px;
 }
 th {
 	background: silver;
+}
+
+tfoot.paging {
+	color: silver;
+	text-align: center;
+}
+
+tfoot a {
+	text-decoration: none;
+	color: silver;
+}
+
+tfoot a:hover {
+	color: limegreen;
+}
+
+span.disable {
+	font-weight: 900;
+	color: limegreen;
 }
